@@ -1,0 +1,38 @@
+.PlayersList-container{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    /* background-color: #16245c; */
+    /* height: calc(100% - 64px); */
+    justify-content: space-between;
+    padding: 32px;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+    /* box-shadow: 20px 10px 5px -10px #111111; */
+}
+
+.PlayersList-header{
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.PlayersList-player{
+    padding: 12px;
+    width: 100%;
+    cursor: pointer;
+    /* border-bottom: 1px solid white; */
+    text-align: center;
+    font-family: 'OpenSans-Light','Helvetica Neue', sans-serif;
+    background-image: linear-gradient(135deg,#16245c,#5c1625);
+    letter-spacing: 1px;
+    font-weight: 300;
+
+}
+
+.PlayersList-player-selected{
+    background-image:none;
+    background-color: white;
+    color: black
+}

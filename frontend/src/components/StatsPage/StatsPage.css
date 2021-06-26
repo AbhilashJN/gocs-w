@@ -1,0 +1,40 @@
+.StatsPage-container{
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    justify-content:flex-start;
+    /* align-items: stretch; */
+    /* flex-direction: column; */
+    overflow: scroll;
+}
+
+.StatsPage-navbar{
+    width:100%;
+    display:flex;
+    margin: 12px 0px;
+}
+
+.StatsPage-navbar-btn{
+    flex:1;
+    text-align: center;
+    cursor: pointer;
+    padding: 8px 0;
+    border: 1px solid rgba(255,255,255,0.2);
+    color:white;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 0.75rem
+}
+
+.StatsPage-navbar-btn-selected{
+    /* background-image: none; */
+    background-image: linear-gradient(135deg,#16245c,#5c1625);
+
+    /* background-color: white; */
+}
+
+.StatsPage-body{
+    display: flex;
+    flex:1;
+    flex-wrap: wrap;
+}
