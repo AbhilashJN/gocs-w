@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	api "github.com/AbhilashJN/gocs-core/api"
 
 	"github.com/golang/geo/r2"
@@ -24,16 +27,16 @@ func (d *DemoFile) WailsInit(runtime *wails.Runtime) error {
 }
 
 func (d *DemoFile) SelFile() string {
-	// path := d.runtime.Dialog.SelectFile("Select a demo file", "*.dem")
-	// fmt.Println(path, d.filepath)
-	// if len(path) > 0 {
-	// 	d.filepath = path
-	// } else {
-	// 	fmt.Println("Cancelling")
-	// 	os.Exit(0)
-	// }
+	path := d.runtime.Dialog.SelectFile("Select a demo file", "*.dem")
+	fmt.Println(path, d.filepath)
+	if len(path) > 0 {
+		d.filepath = path
+	} else {
+		fmt.Println("Cancelling")
+		os.Exit(0)
+	}
 
-	d.filepath = "demo/mydemo.dem"
+	// d.filepath = "demo/mydemo.dem"
 
 	return api.GetMapName(d.filepath)
 }
