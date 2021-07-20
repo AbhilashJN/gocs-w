@@ -6,6 +6,7 @@
   "dependencies": {
     "@wailsapp/runtime": "^1.0.10",
     "core-js": "^3.6.4",
+    "gocs-ui-core": "github:AbhilashJN/gocs-ui-core",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "wails-react-scripts": "3.0.1-2"

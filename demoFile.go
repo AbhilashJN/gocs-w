@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"gocs-w/parser"
-	"os"
+	api "github.com/AbhilashJN/gocs-core/api"
 
 	"github.com/golang/geo/r2"
 	"github.com/wailsapp/wails"
@@ -26,26 +24,26 @@ func (d *DemoFile) WailsInit(runtime *wails.Runtime) error {
 }
 
 func (d *DemoFile) SelFile() string {
-	path := d.runtime.Dialog.SelectFile("Select a demo file", "*.dem")
-	fmt.Println(path, d.filepath)
-	if len(path) > 0 {
-		d.filepath = path
-	} else {
-		fmt.Println("Cancelling")
-		os.Exit(0)
-	}
+	// path := d.runtime.Dialog.SelectFile("Select a demo file", "*.dem")
+	// fmt.Println(path, d.filepath)
+	// if len(path) > 0 {
+	// 	d.filepath = path
+	// } else {
+	// 	fmt.Println("Cancelling")
+	// 	os.Exit(0)
+	// }
 
-	// d.filepath = "demo/mydemo.dem"
+	d.filepath = "demo/mydemo.dem"
 
-	return parser.GetMapName(d.filepath)
+	return api.GetMapName(d.filepath)
 }
 
 func (d *DemoFile) GetPlayersList() []string {
-	return parser.ListPlayers(d.filepath)
+	return api.ListPlayers(d.filepath)
 }
 
 func (d *DemoFile) GetDamageSummaryForPlayer(player string) map[string]interface{} {
-	result := parser.GetDamageSummaryForPlayer(d.filepath, player)
+	result := api.GetDamageSummaryForPlayer(d.filepath, player)
 	return map[string]interface{}{
 		"item_fields":       []string{"name", "given", "taken"},
 		"data":              result,
@@ -54,11 +52,11 @@ func (d *DemoFile) GetDamageSummaryForPlayer(player string) map[string]interface
 }
 
 func (d *DemoFile) GetDeathsPositionForPlayer(player string) map[string][]r2.Point {
-	return parser.GenerateHeatMapPositions(d.filepath, player)
+	return api.GetHeatMapPositions(d.filepath, player)
 }
 
 func (d *DemoFile) GetDeathsSummaryForPlayer(player string) map[string]interface{} {
-	result := parser.GenerateDeathsSummaryForPlayer(d.filepath, player)
+	result := api.GetDeathsSummaryForPlayer(d.filepath, player)
 	return map[string]interface{}{
 		"item_fields":       []string{"name", "kills", "deaths"},
 		"data":              result,
@@ -67,7 +65,7 @@ func (d *DemoFile) GetDeathsSummaryForPlayer(player string) map[string]interface
 }
 
 func (d *DemoFile) GetAccuracySummaryForPlayer(player string) map[string]interface{} {
-	result := parser.GenerateAccuracySummaryForPlayer(d.filepath, player)
+	result := api.GenerateAccuracySummaryForPlayer(d.filepath, player)
 	return map[string]interface{}{
 		"item_fields":       []string{"name", "fired", "hits", "hitPercentage", "headshots"},
 		"data":              result,
