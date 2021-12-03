@@ -2,7 +2,9 @@
 App for analyzing CS:GO demo files.
 
 ## Usage
-Build the app:
+1. Setup [Wails](https://github.com/wailsapp/wails)
+
+2. Build the app:
 ```
 wails build -p -verbose
 ```
